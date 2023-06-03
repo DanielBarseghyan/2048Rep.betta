@@ -5,8 +5,8 @@ export class Tile {
         this.setValue(Math.random() > 0.5 ? 2 : 4);
         gridElement.append(this.tileElement);
     }
-
-    setValue(value) {
+//
+    setValue ( значение ) { -
         this.value = value;
         this.tileElement.textContent = value;
         const bgLightness = 100 - Math.log2(value) * 9;
