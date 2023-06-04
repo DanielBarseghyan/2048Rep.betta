@@ -6,7 +6,7 @@ export class Tile {
         gridElement.append(this.tileElement);
     }
 
-    setValue ( значение ) { 
+    setValue ( value ) { 
         this.value = value;
         this.tileElement.textContent = value;
         const bgLightness = 100 - Math.log2(value) * 9;
