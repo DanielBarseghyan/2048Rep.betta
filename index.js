@@ -2,8 +2,18 @@ import { Grid } from "./grid.js";
 import { Tile } from "./tile.js";
 
 const gameBord = document.getElementById('gameBord');
+const startNewGame = document.querySelector('.startNewGame');
+const startModal = document.querySelector('.startModal');
+const gameoverBanner = document.querySelector('.gameoverBanner');
 const grid = new Grid(gameBord);
+let isGameStarted = false;
 
+startNewGame.addEventListener('click', () => {
+    isGameStarted = true;
+    startModal.classList.add('hide');
+    setupInputOnce();
+})
+setupInputOnce();
 if (!localStorage.getItem('2048Record')) {
     localStorage.setItem('2048Record', 0)
     newRecord('0');
@@ -23,6 +33,8 @@ function setupInputOnce() {
 document.addEventListener('touchstart', handleTouchStart, false);
 document.addEventListener('touchmove', handleTouchMove, false);
 
+
+
 let x1 = null;
 let y1 = null;
 function handleTouchStart(e) {
@@ -31,7 +43,15 @@ function handleTouchStart(e) {
     y1 = firstTouch.clientY;
 
 }
+
+function gameoverAnimation() {
+    gameoverBanner.classList.remove('hide');
+    document.querySelector('.reloudBtn').addEventListener('click', () => window.location.reload());
+}
 async function handleTouchMove(e) {
+    if (!isGameStarted) {
+        return;
+    }
     if (!x1 || !y1) {
         return false;
     }
@@ -42,8 +62,7 @@ async function handleTouchMove(e) {
     let curY = y2 - y1;
     if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
         await newTile.waitForAnimationEnd();
-        alert('Game over');
-        window.location.reload()
+        gameoverAnimation()
     }
     if (Math.abs(curX) > Math.abs(curY)) {
         if (curX > 0) {
@@ -83,12 +102,13 @@ async function handleTouchMove(e) {
     if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
         await newTile.waitForAnimationEnd();
         getHighestScore();
-        alert('Game over');
-        window.location.reload()
+        gameoverAnimation()
     }
 }
 async function handleInput(e) {
-
+    if (!isGameStarted) {
+        return;
+    }
     getHighestScore();
     switch (e.key) {
         case 'ArrowUp':
@@ -130,8 +150,8 @@ async function handleInput(e) {
     if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
         await newTile.waitForAnimationEnd();
         getHighestScore();
-        alert('Game over');
-        window.location.reload()
+
+        gameoverAnimation();
     }
 
     setupInputOnce();

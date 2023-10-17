@@ -1,0 +1,35 @@
+!Hello world!
+This is my attempt to make the game 2048.
+Below is a description of the process of creating the game.
+
+
+1.You need to create a grid 4x4
+2.then you need to create tiles with numbers(2 or 4)
+3.and write the logic to make the tiles move 
+4.then the logic in which tiles with the same numbers are combined and plus  
+
+html um sarqumenq <div id='gamebord'> apagaium mer grid@ vori mej sharjvumen till er@
+gamebordi mej sarkumenk 16 hat <div class='cell'> voronk mer hamar linelu en  fixsvac 
+kubikner voronc vra (hascein x,y ) ov texadrvelu en till er 
+
+style um body in talisenk displey:flex u centr enk berum verev nerkevic vor mer gameBord@ 
+lini mechtex;
+ gameBoard in talienk position relativ vor hetagaium tile elementner@ karoxanank texasharjenq position:apsalut ov;
+ gamebordin talisenk displey:grid u stanum axusak 4x4 `grid-temlate-columns:repeat(4,20vmin),grid-temlate-rows:repeat(4,20vmin);
+20vmi == brauseri patuhani minimal chapic 20%;
++ cell clasin talisenk guin tarbervox bg ic;
+
+tile i stylen 
+tile element@ texadrum enk verevi dzax ankunum` position:absalut;left,top:0;
+qani vor menk tile elementi mej unenk text(tiv) flexi ognutiamb mechtex enk berum tiv@
+talisenk width,heught 20vmin; asinkn gridi celleri chapov 
+qani vor tile eri texti u bg giner@ popoxvum en nshel skzbi hamar bg==spitak textGuin@==sev; 
+hetagaium tile er@ sharjvelu en erku kordinatov x,y vortex x==tox y==vor erord cellum a gtnvum ira tex@
+dra hamar tile i stylum top,left: poxumenk calc(0*(20vmin+2vmin));
+hetevabar ete mer x orinak 0 e petka hashvi(mer stacac kordinat*(tile i chap@ + gap/chi nshve stylum vorovhetev manra/))
+hetevabar stacank 0 ete mer kordinat@ liner 1 mer tilen ktexapoxver mi hat ach asinkn cnox divi 
+skzbnakan patic 20vmin+2vmin depi verev kam nerkev kaxvaca poxvuma top te left position@
+(x,y @ karox en linel 0-3 kan vor mer grid@ 4x4a /ashxatuma array matrixneri principov/)
+
+
+

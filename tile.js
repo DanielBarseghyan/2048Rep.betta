@@ -6,7 +6,7 @@ export class Tile {
         gridElement.append(this.tileElement);
     }
 
-    setValue ( value ) { 
+    setValue(value) {
         this.value = value;
         this.tileElement.textContent = value;
         const bgLightness = 100 - Math.log2(value) * 9;
@@ -22,7 +22,6 @@ export class Tile {
     }
 
     removeFromDOM() {
-        console.log('hhh');
         this.tileElement.remove();
     }
     waitForTransitionEnd() {

@@ -13,7 +13,7 @@
 
 <body scroll="no" style="overflow: hidden">
     <div class="bar">
-        <div style="width: 20vmin;display: flex;flex-direction: column; align-items: center;justify-content: center;">
+        <div style="width: 16vmin;display: flex;flex-direction: column; align-items: center;justify-content: center;">
             <span>Best</span>
             <span id="record"></span>
         </div>
@@ -25,9 +25,18 @@
         </div>
     </div>
     <div id="gameBord">
+        <div class="gameoverBanner hide">
+            <h2>GAME OVER</h2>
+            <i class="fa-solid fa-rotate-left reloudBtn"></i>
+        </div>
+    </div>
+    <div class="startModal">
+        <div class="coll">
+            <div class="logo">2048</div>
+            <div class="startNewGame">START NEW GAME</div>
+        </div>
 
     </div>
-
     <script src="./index.js" type="module"></script>
 </body>
 

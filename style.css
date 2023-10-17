@@ -3,18 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-html, body {
-    overscroll-behavior: none;
-  }
+
+html,
 body {
-    padding: 20px;
+    overscroll-behavior: none;
+}
+
+body {
     background-color: #333;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     height: 100vh;
-    gap: 20px;
+    gap: 10px;
 }
 
 .bar {
@@ -24,7 +26,7 @@ body {
     justify-content: space-between;
 }
 
-.bar > div{
+.bar>div {
     cursor: pointer;
     background: #444;
     padding: 20px 25px;
@@ -34,10 +36,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
-.bar > div >i {
+.bar>div>i {
     font-size: 5vmin;
     color: aliceblue;
 }
@@ -51,7 +53,7 @@ body {
 }
 
 #gameBord {
-    --cellSize: 16vmin;
+    --cellSize: 14vmin;
     --cellGap: 2vmin;
     position: relative;
     display: grid;
@@ -73,8 +75,8 @@ body {
     transition: .1s;
     top: calc(var(--y) * (var(--cellSize) + var(--cellGap)));
     left: calc(var(--x) * (var(--cellSize) + var(--cellGap)));
-    width: 16vmin;
-    height: 16vmin;
+    width: 14vmin;
+    height: 14vmin;
     background-color: hsl(25, 60%, var(--bgLightness));
     color: hsl(20, 25%, var(--textLightness));
     border-radius: 1vmin;
@@ -92,4 +94,69 @@ body {
         transform: scale(0);
         opacity: .5;
     }
+}
+
+.startModal {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.logo {
+    background-color: rgb(241, 219, 176);
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16vmin;
+}
+
+.coll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hide {
+    transition: 2s;
+    opacity: 0;
+    display: none;
+    z-index: 0;
+}
+
+.startNewGame {
+    color: aliceblue;
+    font-size: 3vmin;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+
+.gameoverBanner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, rgba(0, 0, 0, 0.2) 50%);
+    z-index: 3;
+    backdrop-filter: blur(2px);
+    border-radius: 1vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.gameoverBanner > h2{
+    font-size: 8vmin;
+    color: rgb(224, 219, 208);
+    text-rendering: optimizeLegibility;
+}
+.gameoverBanner >i{
+    margin-top: 20px;
+    font-size: 8vmin;
+    color: rgb(224, 219, 208);
+    cursor: pointer;
 }
